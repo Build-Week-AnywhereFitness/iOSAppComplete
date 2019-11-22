@@ -5,7 +5,7 @@
 //  Created by Alex K. on 20/04/16.
 //  Copyright © 2016 Alex K. All rights reserved.
 //
-
+// swiftlint:disable all
 import UIKit
 
 public struct OnboardingItemInfo {
@@ -63,20 +63,15 @@ open class PaperOnboarding: UIView {
     fileprivate var pageView: PageView?
     public fileprivate(set) var gestureControl: GestureControl?
     fileprivate var contentView: OnboardingContentView?
-    
     public init(pageViewBottomConstant: CGFloat = 32) {
-        
         self.pageViewBottomConstant = pageViewBottomConstant
 
         super.init(frame: CGRect.zero)
     }
-    
     public required init?(coder aDecoder: NSCoder) {
-        
         self.pageViewBottomConstant = 32
         self.pageViewSelectedRadius = 22
         self.pageViewRadius = 8
-        
         super.init(coder: aDecoder)
     }
 }

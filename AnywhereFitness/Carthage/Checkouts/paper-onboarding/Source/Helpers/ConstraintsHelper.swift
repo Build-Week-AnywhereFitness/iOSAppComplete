@@ -5,7 +5,7 @@
 //  Created by Alex K. on 13/04/16.
 //  Copyright © 2016 Alex K. All rights reserved.
 //
-
+// swiftlint:disable all
 import UIKit
 
 struct ConstraintInfo {

@@ -5,7 +5,7 @@
 //  Created by Abdurahim Jauzee on 05/06/2017.
 //  Copyright © 2017 Alex K. All rights reserved.
 //
-
+// swiftlint:disable all
 import Foundation
 
 /**

@@ -5,30 +5,25 @@
 //  Created by Niranjan Kumar on 11/18/19.
 //  Copyright © 2019 NarJesse. All rights reserved.
 //
-
+// swiftlint:disable all
 import UIKit
 import CoreData
 
 class CreateClassViewController: UIViewController {
-    
     // MARK: - Variables
     var classController: ClassController?
-    
     let context = CoreDataStack.shared.mainContext
     var aClass: Class? {
         didSet {
             updateViews()
         }
     }
-    
-    
     var typePicker = UIPickerView()
     var intensityPicker = UIPickerView()
     var durationPicker = UIPickerView()
     var typeData = ["Choose a workout", "Yoga" , "Cycling" , "Cardio" , "Strength Training" , "HIIT" ]
     var intensityData = ["Choose an intensity", "Easy" , "Medium" , "Difficult"]
     var durationData = ["Choose a duration", "30 minutes" , "60 minutes" , "90 minutes" ]
-    
     // MARK: - Outlets
     @IBOutlet weak var classNameTextField: UITextField!
     @IBOutlet weak var yourNameTextField: UITextField!
@@ -39,7 +34,6 @@ class CreateClassViewController: UIViewController {
     @IBOutlet weak var classSizeTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var date: UIDatePicker!
-    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +53,8 @@ class CreateClassViewController: UIViewController {
         dismissPickerView()
         updateViews()
     }
-    
     // MARK: - Methods & Functions
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
-        
         guard let className = classNameTextField.text, !className.isEmpty else { return }
         guard let instructorName = yourNameTextField.text, !instructorName.isEmpty else { return }
         guard let location = locationTextField.text, !location.isEmpty else { return }
@@ -73,7 +65,6 @@ class CreateClassViewController: UIViewController {
         guard let classSize = Int16(maxClassSize) else { return }
         guard let aDescription = descriptionTextView.text, !description.isEmpty else { return }
         let newDate = date.date
-        
             if let aClass = aClass {
                 classController?.updateClass(classes: aClass, name: className, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensity, location: location, maxClassSize: classSize, classDetail: aDescription, date: newDate, context: context)
             } else {
@@ -81,11 +72,9 @@ class CreateClassViewController: UIViewController {
             }
         navigationController?.popViewController(animated: true)
     }
-    
     func updateViews() {
         guard isViewLoaded else { return }
         guard let aClass = aClass else { return }
-        
         title = aClass.name
         classNameTextField.text = aClass.name
         yourNameTextField.text = aClass.instructorName
@@ -97,7 +86,6 @@ class CreateClassViewController: UIViewController {
         descriptionTextView.text = aClass.classDetail
         date.date = aClass.date!
     }
-        
     func dismissPickerView() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -108,7 +96,6 @@ class CreateClassViewController: UIViewController {
         typeTextField.inputAccessoryView = toolBar
         durationTextField.inputAccessoryView = toolBar
     }
-    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -119,7 +106,6 @@ extension CreateClassViewController: UIPickerViewDataSource, UIPickerViewDelegat
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1 {
             return typeData.count
@@ -129,7 +115,6 @@ extension CreateClassViewController: UIPickerViewDataSource, UIPickerViewDelegat
             return durationData.count
         }
     }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1 {
             typeTextField.text = typeData[row]
@@ -139,7 +124,6 @@ extension CreateClassViewController: UIPickerViewDataSource, UIPickerViewDelegat
             durationTextField.text = durationData[row]
         }
     }
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
             return typeData[row]
@@ -150,5 +134,3 @@ extension CreateClassViewController: UIPickerViewDataSource, UIPickerViewDelegat
         }
     }
 }
-
-

@@ -1,7 +1,7 @@
 #!/usr/bin/env xcrun swift
 
 import Foundation
-
+// swiftlint:disable all
 // MARK: NSUserDefaults extension
 
 extension NSUserDefaults {
@@ -83,7 +83,7 @@ func build(assets: [String], _ exportPath: String, _ enumName: String) -> Bool {
 let (path, exportPath, enumName) = NSUserDefaults.standardUserDefaults().arguments
 let fm = NSFileManager.defaultManager()
 
-guard let imagesets = fm.imagesets(inAssetsPath: path) where !imagesets.isEmpty else {
+guard let imagesets = fm.imagesets(inAssetsPath: path), !imagesets.isEmpty else {
     fatalError("\n[Error] No imageset is found and failed to export a file...\n")
 }
 

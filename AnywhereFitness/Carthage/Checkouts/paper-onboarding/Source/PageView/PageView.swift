@@ -5,7 +5,7 @@
 //  Created by Alex K. on 13/04/16.
 //  Copyright © 2016 Alex K. All rights reserved.
 //
-
+// swiftlint:disable all
 import UIKit
 
 class PageView: UIView {
@@ -67,7 +67,6 @@ extension PageView {
         view.addSubview(pageView)
 
       let layoutAttribs:[(NSLayoutConstraint.Attribute, Int)] =  [(NSLayoutConstraint.Attribute.left, 0), (NSLayoutConstraint.Attribute.right, 0), (NSLayoutConstraint.Attribute.bottom, Int(bottomConstant))]
-      
         // add constraints
       for (attribute, const) in layoutAttribs {
             (view, pageView) >>>- {

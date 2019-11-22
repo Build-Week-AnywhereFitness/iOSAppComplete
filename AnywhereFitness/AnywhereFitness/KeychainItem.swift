@@ -5,7 +5,7 @@
 //  Created by Jesse Ruiz on 11/20/19.
 //  Copyright © 2019 NarJesse. All rights reserved.
 //
-
+// swiftlint:disable all
 import Foundation
 
 struct KeychainItem {

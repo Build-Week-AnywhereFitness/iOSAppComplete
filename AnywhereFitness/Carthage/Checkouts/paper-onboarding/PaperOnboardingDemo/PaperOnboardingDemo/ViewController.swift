@@ -6,6 +6,7 @@
 //  Copyright © 2016 Alex K. All rights reserved.
 //
 
+// swiftlint:disable all
 import UIKit
 
 class ViewController: UIViewController {
@@ -84,9 +85,7 @@ extension ViewController: PaperOnboardingDelegate {
     }
 
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-        
         // configure item
-        
         //item.titleLabel?.backgroundColor = .redColor()
         //item.descriptionLabel?.backgroundColor = .redColor()
         //item.imageView = ...
@@ -104,7 +103,6 @@ extension ViewController: PaperOnboardingDataSource {
     func onboardingItemsCount() -> Int {
         return 3
     }
-    
     //    func onboardinPageItemRadius() -> CGFloat {
     //        return 2
     //    }
@@ -117,11 +115,8 @@ extension ViewController: PaperOnboardingDataSource {
     //    }
 }
 
-
-//MARK: Constants
+    // MARK: - Constants
 private extension ViewController {
-    
     static let titleFont = UIFont(name: "Nunito-Bold", size: 36.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
     static let descriptionFont = UIFont(name: "OpenSans-Regular", size: 14.0) ?? UIFont.systemFont(ofSize: 14.0)
 }
-

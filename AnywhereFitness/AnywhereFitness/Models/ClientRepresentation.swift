@@ -12,5 +12,3 @@ struct ClientRepresentation: Codable {
     let email: String
     let password: String
 }
-
-

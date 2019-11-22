@@ -5,7 +5,7 @@
 //  Created by Niranjan Kumar on 11/19/19.
 //  Copyright © 2019 NarJesse. All rights reserved.
 //
-
+// swiftlint:disable all
 import Foundation
 import CoreData
 
@@ -40,7 +40,6 @@ extension Class {
                                         id: UUID = UUID(),
                                         context: NSManagedObjectContext) {
         self.init(context: context)
-        
         self.name = name
         self.instructorName = instructorName
         self.type = type
@@ -53,7 +52,6 @@ extension Class {
         self.isAttending = isAttending
         self.id = id
     }
-    
     @discardableResult convenience init?(classRepresentation: ClassRepresentation, context: NSManagedObjectContext) {
         self.init(name: classRepresentation.name,
                   instructorName: classRepresentation.instructorName,
