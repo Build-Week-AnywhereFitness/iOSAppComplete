@@ -14,16 +14,15 @@
 		4B29731123833A4600E9CC76 /* AnywhereFitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B29730F23833A4600E9CC76 /* AnywhereFitness.xcdatamodeld */; };
 		4B29731323833A4900E9CC76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B29731223833A4900E9CC76 /* Assets.xcassets */; };
 		4B29731623833A4900E9CC76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B29731423833A4900E9CC76 /* LaunchScreen.storyboard */; };
+		4B428DA823876CDE00748036 /* ClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B428DA723876CDE00748036 /* ClientController.swift */; };
 		4BB5FF48238471560053DD68 /* Class+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF47238471560053DD68 /* Class+Convenience.swift */; };
 		4BB5FF4A238471830053DD68 /* Client+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF49238471830053DD68 /* Client+Convenience.swift */; };
 		4BB5FF4C238471D10053DD68 /* ClassRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF4B238471D10053DD68 /* ClassRepresentation.swift */; };
 		4BB5FF4E238471EF0053DD68 /* ClientRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF4D238471EF0053DD68 /* ClientRepresentation.swift */; };
 		4BB5FF50238472060053DD68 /* InstructorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF4F238472060053DD68 /* InstructorRepresentation.swift */; };
 		4BB5FF5F23847ACD0053DD68 /* AllClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF5E23847ACD0053DD68 /* AllClassesTableViewController.swift */; };
-		4BB5FF6123847AD90053DD68 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF6023847AD90053DD68 /* ProfileTableViewController.swift */; };
 		4BB5FF6323847AE30053DD68 /* InstructorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF6223847AE30053DD68 /* InstructorTableViewController.swift */; };
 		4BB5FF6523847AF10053DD68 /* AllClassesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF6423847AF10053DD68 /* AllClassesTableViewCell.swift */; };
-		4BB5FF6723847AFF0053DD68 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF6623847AFF0053DD68 /* ProfileTableViewCell.swift */; };
 		4BB5FF6923847B0C0053DD68 /* InstructorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF6823847B0C0053DD68 /* InstructorTableViewCell.swift */; };
 		4BB5FF6B23849CA50053DD68 /* Instructor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5FF6A23849CA50053DD68 /* Instructor+Convenience.swift */; };
 		4BD54850238356710040D1EA /* ClientLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5484F238356710040D1EA /* ClientLoginViewController.swift */; };
@@ -31,13 +30,16 @@
 		4BD54856238356E40040D1EA /* CreateClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD54855238356E40040D1EA /* CreateClassViewController.swift */; };
 		4BD54858238356ED0040D1EA /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD54857238356ED0040D1EA /* ClassInfoViewController.swift */; };
 		4BD5485B238358290040D1EA /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5485A238358290040D1EA /* OnboardViewController.swift */; };
-		4BD5485D238358400040D1EA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5485C238358400040D1EA /* WelcomeViewController.swift */; };
 		80A8A355238469CA000AED7C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A8A354238469CA000AED7C /* CoreDataStack.swift */; };
 		80A8A386238487F1000AED7C /* ClassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A8A385238487F1000AED7C /* ClassController.swift */; };
 		80A8A38823849F3C000AED7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80A8A38723849F3C000AED7C /* GoogleService-Info.plist */; };
 		80FE466A23866B1F00C8D484 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FE466923866B1F00C8D484 /* KeychainItem.swift */; };
 		80FE466C238705AD00C8D484 /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FE466B238705AD00C8D484 /* PaperOnboarding.framework */; };
 		80FE466D238705AD00C8D484 /* PaperOnboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80FE466B238705AD00C8D484 /* PaperOnboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80FE469D2387F48A00C8D484 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FE469C2387F48A00C8D484 /* Onboarding.storyboard */; };
+		80FE469F2387F4A500C8D484 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FE469E2387F4A500C8D484 /* WalkthroughContentViewController.swift */; };
+		80FE46A12387F4FA00C8D484 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FE46A02387F4FA00C8D484 /* WalkthroughPageViewController.swift */; };
+		80FE46A32387F54000C8D484 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FE46A22387F54000C8D484 /* WalkthroughViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,16 +67,15 @@
 		4B29731223833A4900E9CC76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B29731523833A4900E9CC76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B29731723833A4900E9CC76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B428DA723876CDE00748036 /* ClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientController.swift; sourceTree = "<group>"; };
 		4BB5FF47238471560053DD68 /* Class+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class+Convenience.swift"; sourceTree = "<group>"; };
 		4BB5FF49238471830053DD68 /* Client+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+Convenience.swift"; sourceTree = "<group>"; };
 		4BB5FF4B238471D10053DD68 /* ClassRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRepresentation.swift; sourceTree = "<group>"; };
 		4BB5FF4D238471EF0053DD68 /* ClientRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRepresentation.swift; sourceTree = "<group>"; };
 		4BB5FF4F238472060053DD68 /* InstructorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorRepresentation.swift; sourceTree = "<group>"; };
 		4BB5FF5E23847ACD0053DD68 /* AllClassesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClassesTableViewController.swift; sourceTree = "<group>"; };
-		4BB5FF6023847AD90053DD68 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4BB5FF6223847AE30053DD68 /* InstructorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorTableViewController.swift; sourceTree = "<group>"; };
 		4BB5FF6423847AF10053DD68 /* AllClassesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClassesTableViewCell.swift; sourceTree = "<group>"; };
-		4BB5FF6623847AFF0053DD68 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		4BB5FF6823847B0C0053DD68 /* InstructorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorTableViewCell.swift; sourceTree = "<group>"; };
 		4BB5FF6A23849CA50053DD68 /* Instructor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Instructor+Convenience.swift"; sourceTree = "<group>"; };
 		4BD5484F238356710040D1EA /* ClientLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientLoginViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		4BD54855238356E40040D1EA /* CreateClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClassViewController.swift; sourceTree = "<group>"; };
 		4BD54857238356ED0040D1EA /* ClassInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		4BD5485A238358290040D1EA /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
-		4BD5485C238358400040D1EA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		569EF006430926C8305F2E5E /* Pods-AnywhereFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnywhereFitness.debug.xcconfig"; path = "Target Support Files/Pods-AnywhereFitness/Pods-AnywhereFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		80A8A354238469CA000AED7C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		80A8A385238487F1000AED7C /* ClassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassController.swift; sourceTree = "<group>"; };
@@ -90,6 +90,10 @@
 		80FE46682386629600C8D484 /* AnywhereFitness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnywhereFitness.entitlements; sourceTree = "<group>"; };
 		80FE466923866B1F00C8D484 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		80FE466B238705AD00C8D484 /* PaperOnboarding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PaperOnboarding.framework; path = Carthage/Build/iOS/PaperOnboarding.framework; sourceTree = "<group>"; };
+		80FE469C2387F48A00C8D484 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		80FE469E2387F4A500C8D484 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		80FE46A02387F4FA00C8D484 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		80FE46A22387F54000C8D484 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 				4B29731723833A4900E9CC76 /* Info.plist */,
 				80A8A38723849F3C000AED7C /* GoogleService-Info.plist */,
 				80A8A385238487F1000AED7C /* ClassController.swift */,
+				4B428DA723876CDE00748036 /* ClientController.swift */,
 				80FE466923866B1F00C8D484 /* KeychainItem.swift */,
 			);
 			path = AnywhereFitness;
@@ -147,10 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				4BB5FF5E23847ACD0053DD68 /* AllClassesTableViewController.swift */,
-				4BB5FF6023847AD90053DD68 /* ProfileTableViewController.swift */,
 				4BB5FF6223847AE30053DD68 /* InstructorTableViewController.swift */,
 				4BB5FF6423847AF10053DD68 /* AllClassesTableViewCell.swift */,
-				4BB5FF6623847AFF0053DD68 /* ProfileTableViewCell.swift */,
 				4BB5FF6823847B0C0053DD68 /* InstructorTableViewCell.swift */,
 			);
 			path = TableViewControllers;
@@ -160,6 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				4B29730C23833A4600E9CC76 /* Main.storyboard */,
+				80FE469C2387F48A00C8D484 /* Onboarding.storyboard */,
+				80FE469E2387F4A500C8D484 /* WalkthroughContentViewController.swift */,
+				80FE46A02387F4FA00C8D484 /* WalkthroughPageViewController.swift */,
+				80FE46A22387F54000C8D484 /* WalkthroughViewController.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -196,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				4BD5485A238358290040D1EA /* OnboardViewController.swift */,
-				4BD5485C238358400040D1EA /* WelcomeViewController.swift */,
 			);
 			path = OnboardViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				4B2972FF23833A4600E9CC76 /* Sources */,
 				4B29730023833A4600E9CC76 /* Frameworks */,
 				4B29730123833A4600E9CC76 /* Resources */,
+				DE51E59FBB44D988723C7700 /* [CP] Embed Pods Frameworks */,
 				80FE466E238705AD00C8D484 /* Embed Frameworks */,
 				80FE466F238705CD00C8D484 /* ShellScript */,
 			);
@@ -296,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B29731623833A4900E9CC76 /* LaunchScreen.storyboard in Resources */,
+				80FE469D2387F48A00C8D484 /* Onboarding.storyboard in Resources */,
 				80A8A38823849F3C000AED7C /* GoogleService-Info.plist in Resources */,
 				4B29731323833A4900E9CC76 /* Assets.xcassets in Resources */,
 				4B29730E23833A4600E9CC76 /* Main.storyboard in Resources */,
@@ -346,6 +354,23 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
+		DE51E59FBB44D988723C7700 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnywhereFitness/Pods-AnywhereFitness-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnywhereFitness/Pods-AnywhereFitness-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnywhereFitness/Pods-AnywhereFitness-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB5FF6923847B0C0053DD68 /* InstructorTableViewCell.swift in Sources */,
+				80FE46A32387F54000C8D484 /* WalkthroughViewController.swift in Sources */,
 				4BB5FF4E238471EF0053DD68 /* ClientRepresentation.swift in Sources */,
 				80A8A355238469CA000AED7C /* CoreDataStack.swift in Sources */,
 				4BB5FF50238472060053DD68 /* InstructorRepresentation.swift in Sources */,
@@ -362,19 +388,19 @@
 				4BD54852238356910040D1EA /* InstructorLoginViewController.swift in Sources */,
 				4BD5485B238358290040D1EA /* OnboardViewController.swift in Sources */,
 				80FE466A23866B1F00C8D484 /* KeychainItem.swift in Sources */,
-				4BB5FF6123847AD90053DD68 /* ProfileTableViewController.swift in Sources */,
 				4BB5FF48238471560053DD68 /* Class+Convenience.swift in Sources */,
 				4BB5FF4A238471830053DD68 /* Client+Convenience.swift in Sources */,
+				80FE46A12387F4FA00C8D484 /* WalkthroughPageViewController.swift in Sources */,
 				4BB5FF6523847AF10053DD68 /* AllClassesTableViewCell.swift in Sources */,
 				4BD54858238356ED0040D1EA /* ClassInfoViewController.swift in Sources */,
 				4B29730923833A4600E9CC76 /* SceneDelegate.swift in Sources */,
 				80A8A386238487F1000AED7C /* ClassController.swift in Sources */,
-				4BB5FF6723847AFF0053DD68 /* ProfileTableViewCell.swift in Sources */,
 				4BB5FF6323847AE30053DD68 /* InstructorTableViewController.swift in Sources */,
-				4BD5485D238358400040D1EA /* WelcomeViewController.swift in Sources */,
 				4BB5FF5F23847ACD0053DD68 /* AllClassesTableViewController.swift in Sources */,
 				4BB5FF6B23849CA50053DD68 /* Instructor+Convenience.swift in Sources */,
 				4BB5FF4C238471D10053DD68 /* ClassRepresentation.swift in Sources */,
+				4B428DA823876CDE00748036 /* ClientController.swift in Sources */,
+				80FE469F2387F4A500C8D484 /* WalkthroughContentViewController.swift in Sources */,
 				4B29731123833A4600E9CC76 /* AnywhereFitness.xcdatamodeld in Sources */,
 				4BD54856238356E40040D1EA /* CreateClassViewController.swift in Sources */,
 			);

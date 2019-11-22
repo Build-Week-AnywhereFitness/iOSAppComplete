@@ -19,11 +19,12 @@ extension Class {
             let duration = duration,
             let intensityLevel = intensityLevel,
             let location = location,
+//            let masClassSize = masClassSize,
             let classDetail = classDetail,
             let date = date,
+
             let id = id else { return nil }
-        
-        return ClassRepresentation(name: name, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensityLevel, location: location, maxClassSize: Int16(), classDetail: classDetail, date: date, id: id)
+        return ClassRepresentation(name: name, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensityLevel, location: location, maxClassSize: Int16(), classDetail: classDetail, date: date, isAttending: isAttending, id: id)
     }
     
     @discardableResult convenience init(name: String,
@@ -35,6 +36,7 @@ extension Class {
                                         maxClassSize: Int16,
                                         classDetail: String,
                                         date: Date = Date.init(timeIntervalSinceNow: 0),
+                                        isAttending: Bool = false,
                                         id: UUID = UUID(),
                                         context: NSManagedObjectContext) {
         self.init(context: context)
@@ -48,6 +50,7 @@ extension Class {
         self.maxClassSize = maxClassSize
         self.classDetail = classDetail
         self.date = date
+        self.isAttending = isAttending
         self.id = id
     }
     
@@ -61,6 +64,7 @@ extension Class {
                   maxClassSize: classRepresentation.maxClassSize,
                   classDetail: classRepresentation.classDetail,
                   date: classRepresentation.date,
+                  isAttending: classRepresentation.isAttending ?? false,
                   id: classRepresentation.id,
                   context: context)
     }

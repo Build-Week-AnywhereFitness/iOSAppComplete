@@ -94,6 +94,7 @@ class ClientLoginViewController: UIViewController {
 }
 
 extension ClientLoginViewController: ASAuthorizationControllerDelegate {
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             
@@ -109,11 +110,8 @@ extension ClientLoginViewController: ASAuthorizationControllerDelegate {
                 print("Unable to save userIdentifier to keychain.")
             }
             
-            if let viewController = self.presentingViewController as? AllClassesTableViewController {
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                }
-            }
+            UserDefaults.standard.set(true, forKey: "clientHasLoggedIn")
+            dismiss(animated: true, completion: nil)
             
         } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
             // Sign in using an existing iCloud Keychain credential.

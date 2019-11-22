@@ -39,15 +39,23 @@ class InstructorTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "instructorHasLoggedIn") {
+            return
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let clientLoginVC = storyboard.instantiateViewController(identifier: "InstructorLoginViewController") as? InstructorLoginViewController {
+            present(clientLoginVC, animated: true, completion: nil)
+        }
+    }
+
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "InstructorCell", for: indexPath) as? InstructorTableViewCell else { return UITableViewCell() }
         cell.classController = classController
@@ -75,12 +83,18 @@ class InstructorTableViewController: UITableViewController {
             }
         } else if segue.identifier == "EditClassSegue" {
             if let editClassVC = segue.destination as? CreateClassViewController, let indexPath = tableView.indexPathForSelectedRow {
-                editClassVC.classController = classController
                 editClassVC.aClass = fetchedResultsController.object(at: indexPath)
+                editClassVC.classController = classController
+                
             }
+            
         }
     }
+
+
 }
+
+
 
 extension InstructorTableViewController: NSFetchedResultsControllerDelegate {
 func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

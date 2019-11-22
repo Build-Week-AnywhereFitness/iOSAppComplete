@@ -9,22 +9,38 @@
 import UIKit
 
 class OnboardViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var instructorImage: UIImageView!
+    @IBOutlet weak var lookingForClasses: UIButton! {
+        didSet {
+            lookingForClasses.layer.cornerRadius = 25
+            lookingForClasses.layer.masksToBounds = true
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var coachingTheClasses: UIButton! {
+        didSet {
+            coachingTheClasses.layer.cornerRadius = 25
+            coachingTheClasses.layer.masksToBounds = true
+        }
     }
-    */
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+            return
+        }
+        
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(identifier: "WalkthroughViewController") as? WalkthroughViewController {
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
 }
+
+

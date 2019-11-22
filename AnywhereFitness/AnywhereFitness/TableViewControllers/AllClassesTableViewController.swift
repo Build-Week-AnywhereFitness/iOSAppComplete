@@ -19,6 +19,7 @@ class AllClassesTableViewController: UITableViewController {
         
         fetchRequest.sortDescriptors = [
             NSSortDescriptor(key: "type", ascending: true),
+            NSSortDescriptor(key: "isAttending", ascending: true),
             NSSortDescriptor(key: "date", ascending: true)
         ]
         
@@ -41,6 +42,13 @@ class AllClassesTableViewController: UITableViewController {
     
     // MARK: - LOGIN INPUT
     override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "clientHasLoggedIn") {
+            return
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let clientLoginVC = storyboard.instantiateViewController(identifier: "ClientLoginViewController") as? ClientLoginViewController {
+            present(clientLoginVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Table view data source
@@ -60,12 +68,13 @@ class AllClassesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AllClassesCell", for: indexPath) as? AllClassesTableViewCell else { return UITableViewCell() }
         cell.aClass = fetchedResultsController.object(at: indexPath)
+        cell.alertDelegate = self
         return cell
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "RegisterSegue" {
+        if segue.identifier == "DetailSegue" {
             if let classInfoVC = segue.destination as? ClassInfoViewController, let indexPath = tableView.indexPathForSelectedRow {
                 classInfoVC.classController = classController
                 classInfoVC.aClass = fetchedResultsController.object(at: indexPath)

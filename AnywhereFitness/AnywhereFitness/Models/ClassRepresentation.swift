@@ -18,5 +18,6 @@ struct ClassRepresentation: Codable {
     let maxClassSize: Int16
     let classDetail: String
     let date: Date
+    let isAttending: Bool?
     let id: UUID
 }

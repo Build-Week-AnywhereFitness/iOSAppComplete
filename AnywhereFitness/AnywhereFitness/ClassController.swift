@@ -18,9 +18,6 @@ enum HTTPMethod: String {
 
 class ClassController {
     
-    var instructorClasses: [Class] = []
-    var clientClassesAdded: [Class] = []
-    
     let baseURL = URL(string: "https://anywhere-fitness-ffa28.firebaseio.com/")!
     
     init() {
@@ -51,7 +48,7 @@ class ClassController {
             
             do {
                 try decoder.decode([String: ClassRepresentation].self, from: data).map({ $0.value })
-                //self.updateClasses(with: classes)
+//                try self.updateClasses(with: classes)
             } catch {
                 NSLog("Error decoding ClassRepresentations: \(error)")
             }
@@ -59,54 +56,55 @@ class ClassController {
         }.resume()
     }
     
-//    func updateClasses(with representations: [ClassRepresentation]) {
-//
-//        let identifiersToFetch = representations.map({ $0.id })
-//
-//        let representationsByID = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
-//
-//        var classesToCreate = representationsByID
-//
-//        let context = CoreDataStack.shared.container.newBackgroundContext()
-//
-//        context.performAndWait {
-//
-//            do {
-//                let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
-//
-//                fetchRequest.predicate = NSPredicate(format: "identifier == %@", identifiersToFetch)
-//
-//                let existingClasses = try context.fetch(fetchRequest)
-//
-//                for classes in existingClasses {
-//
-//                    guard let identifier = classes.id,
-//                    let representation = representationsByID[identifier] else { continue }
-//
-//                    classes.name = representation.name
-//                    classes.instructorName = representation.instructorName
-//                    classes.type = representation.type
-//                    classes.duration = representation.duration
-//                    classes.intensityLevel = representation.intensityLevel
-//                    classes.location = representation.location
-//                    classes.maxClassSize = Int16(representation.maxClassSize)
-//                    classes.classDetail = representation.classDetail
-//                    classes.date = representation.date
-//
-//                    classesToCreate.removeValue(forKey: identifier)
-//                }
-//
-//                for representation in classesToCreate.values {
-//                    Class(classRepresentation: representation, context: context)
-//                }
-//
-//                CoreDataStack.shared.save(context: context)
-//
-//            } catch {
-//                NSLog("Error fetching classes from persistent store: \(error)")
-//            }
-//        }
-//    }
+    func updateClasses(with representations: [ClassRepresentation]) {
+
+        let identifiersToFetch = representations.map({ $0.id })
+
+        let representationsByID = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
+
+        var classesToCreate = representationsByID
+
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        
+        let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
+
+        context.perform {
+
+            do {
+
+                let existingClasses = try context.fetch(fetchRequest)
+                for classes in existingClasses {
+
+                    guard let identifier = classes.id,
+                    let representation = representationsByID[identifier] else { continue }
+
+                    classes.name = representation.name
+                    classes.instructorName = representation.instructorName
+                    classes.type = representation.type
+                    classes.duration = representation.duration
+                    classes.intensityLevel = representation.intensityLevel
+                    classes.location = representation.location
+                    classes.maxClassSize = Int16(representation.maxClassSize)
+                    classes.classDetail = representation.classDetail
+                    classes.date = representation.date
+                    classes.isAttending = representation.isAttending!
+
+                    classesToCreate.removeValue(forKey: identifier)
+                }
+
+                for representation in classesToCreate.values {
+                    Class(classRepresentation: representation, context: context)
+                }
+
+                CoreDataStack.shared.save(context: context)
+
+            } catch {
+                NSLog("Error fetching classes from persistent store: \(error)")
+            }
+        }
+    }
     
     func put(classes: Class, completion: @escaping () -> Void = { }) {
         
@@ -167,12 +165,11 @@ class ClassController {
         }.resume()
     }
     
-    func createClass(name: String, instructorName: String, type: String, duration: String, intensityLevel: String, location: String, maxClassSize: Int16, classDetail: String, date: Date, context: NSManagedObjectContext) {
+    func createClass(name: String, instructorName: String, type: String, duration: String, intensityLevel: String, location: String, maxClassSize: Int16, classDetail: String, date: Date, isAttending: Bool, context: NSManagedObjectContext) {
         
-        let classes = Class(name: name, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensityLevel, location: location, maxClassSize: Int16(), classDetail: classDetail, date: date, context: context)
+        let classes = Class(name: name, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensityLevel, location: location, maxClassSize: maxClassSize, classDetail: classDetail, date: date, isAttending: isAttending, context: context)
         CoreDataStack.shared.save(context: context)
         put(classes: classes)
-        instructorClasses.append(classes)
     }
     
     func updateClass(classes: Class, name: String, instructorName: String, type: String, duration: String, intensityLevel: String, location: String, maxClassSize: Int16, classDetail: String, date: Date, context: NSManagedObjectContext) {
@@ -191,10 +188,22 @@ class ClassController {
         put(classes: classes)
     }
     
+    func updateClassAttending(classes: Class, context: NSManagedObjectContext) {
+        if classes.isAttending == false {
+            classes.isAttending.toggle()
+        }
+        CoreDataStack.shared.save(context: context)
+        put(classes: classes)
+    }
+    
+    
     func deleteClass(classes: Class, context: NSManagedObjectContext) {
         
         CoreDataStack.shared.mainContext.delete(classes)
         deleteClassFromServer(classes: classes)
         CoreDataStack.shared.save(context: context)
     }
+
+    
+    
 }

@@ -13,6 +13,7 @@ class ClassInfoViewController: UIViewController {
     // MARK: - Variables
     
     var classController: ClassController?
+    var clientController: ClientController?
     var aClass: Class? {
         didSet {
             updateViews()
@@ -44,10 +45,16 @@ class ClassInfoViewController: UIViewController {
         
     }
     
-    @IBAction func classAdded (_ sender: Any) {
-        
-        
-    }
+//    @IBAction func classAdded (_ sender: Any) {
+//        guard let aClass = aClass else { return }
+//
+//        clientController?.clientAddClass(classes: aClass, context: CoreDataStack.shared.mainContext)
+//
+//        let alertController = UIAlertController(title: "💪!", message: "You've added this class!", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Let's Go!", style: .default, handler: nil)
+//        alertController.addAction(action)
+//        self.present(alertController, animated: true)
+//    }
     
     
     private func updateViews() {
@@ -59,9 +66,18 @@ class ClassInfoViewController: UIViewController {
         date.text = "Class Start Time: \(dateFormatter.string(from: (aClass?.date!)!))"
         location.text = "Location: \(String(describing: aClass!.location!))"
         duration.text = "Duration: \(String(describing: aClass!.duration!))"
-        descriptionTextView.text = "\(aClass!.description)"
-        
+        descriptionTextView.text = "\(aClass!.classDetail!)"
     }
     
     
+//    // MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "AddSegue" {
+//            if let classInfoVC = segue.destination as? ProfileTableViewController {
+//                classInfoVC.clientController = clientController
+//            }
+//        }
+//    }
 }
+ 
+ 

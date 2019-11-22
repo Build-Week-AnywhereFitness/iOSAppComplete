@@ -7,6 +7,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="instructorName" optional="YES" attributeType="String"/>
         <attribute name="intensityLevel" optional="YES" attributeType="String"/>
+        <attribute name="isAttending" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="location" optional="YES" attributeType="String"/>
         <attribute name="maxClassSize" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -23,7 +24,7 @@
         <attribute name="password" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Class" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="Class" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="Client" positionX="-54" positionY="63" width="128" height="73"/>
         <element name="Instructor" positionX="-36" positionY="72" width="128" height="103"/>
     </elements>

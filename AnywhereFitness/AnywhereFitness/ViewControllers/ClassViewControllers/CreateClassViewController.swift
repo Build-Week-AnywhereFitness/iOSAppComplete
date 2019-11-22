@@ -55,6 +55,7 @@ class CreateClassViewController: UIViewController {
         typeTextField.inputView = typePicker
         intensityTextField.inputView = intensityPicker
         durationTextField.inputView = durationPicker
+        date.minuteInterval = 15
         dismissPickerView()
         updateViews()
     }
@@ -76,7 +77,7 @@ class CreateClassViewController: UIViewController {
             if let aClass = aClass {
                 classController?.updateClass(classes: aClass, name: className, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensity, location: location, maxClassSize: classSize, classDetail: aDescription, date: newDate, context: context)
             } else {
-                classController?.createClass(name: className, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensity, location: location, maxClassSize: classSize, classDetail: aDescription, date: newDate, context: context)
+                classController?.createClass(name: className, instructorName: instructorName, type: type, duration: duration, intensityLevel: intensity, location: location, maxClassSize: classSize, classDetail: aDescription, date: newDate, isAttending: false, context: context)
             }
         navigationController?.popViewController(animated: true)
     }
@@ -93,7 +94,7 @@ class CreateClassViewController: UIViewController {
         intensityTextField.text = aClass.intensityLevel
         durationTextField.text = aClass.duration
         classSizeTextField.text = "\(String(describing: aClass.maxClassSize))"
-        descriptionTextView.text = aClass.description
+        descriptionTextView.text = aClass.classDetail
         date.date = aClass.date!
     }
         
